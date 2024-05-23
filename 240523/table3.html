@@ -1,0 +1,97 @@
+<!--  table2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+/*  css 주석  */
+
+        table{
+            border:1px black dotted;
+            border-collapse: collapse; /* 테이블 셀 간의 간격 제거 */
+            width: 380px;
+        }
+        th, td{
+            border:1px black dotted;
+            text-align:center; /* 가운데정렬 */
+        }
+        .w100{
+            width:100px
+        }
+        .w80{
+            width:80px
+        }
+        tr{
+            height:30px
+        }
+        .bg_yellow{
+            background: yellow
+        }
+        .bg_lightgreen{
+            background: lightgreen
+        }
+        tr:hover{
+            background: #ccc;
+            font-size:20px;
+            font-family: "Nanum Gothic", sans-serif;  /* 글씨체 */
+            font-weight: 400; /* 글씨 굵기 100~900 */
+            font-style: normal;
+            color:white;
+        }
+        
+    </style>
+
+</head>
+<body>
+     <table>
+        <thead>
+            <tr>
+                <th id="title_school" class="w100 bg_yellow">학교명</th>
+                <th id="title_dept" class="w100 bg_yellow">학과명</th>
+                <th id="title_name" class="w100 bg_lightgreen">이름</th>
+                <th class="w80 bg_lightgreen">성적</th>
+            </tr>
+        </thead>
+        <tbody class="title">
+            <tr>
+                <td>A대학교</td>
+                <td>체육과</td>
+                <td>이순신</td>
+                <td>4.3</td>
+            </tr>
+            <tr>
+                <td>B대학교</td>
+                <td>국문과</td>
+                <td>한석봉</td>
+                <td>3.9</td>
+            </tr>
+            <tr>
+                <td>C대학교</td>
+                <td>기계과</td>
+                <td>장영실</td>
+                <td>2.5</td>
+            </tr>
+            <tr>
+                <td>D대학교</td>
+                <td>정치과</td>
+                <td>유관순</td>
+                <td>1.8</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="w100 bg_yellow">학교명</th>
+                <th class="w100 bg_yellow">학과명</th>
+                <th class="w100 bg_lightgreen">이름</th>
+                <th class="w80 bg_lightgreen">성적</th>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>
