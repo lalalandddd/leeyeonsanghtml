@@ -1,0 +1,98 @@
+/*  main.css  */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+#wrap{
+    margin:0 auto;
+    width:1000px;
+    box-sizing:border-box;
+}
+#side{
+    position:fixed;
+    top:150px;
+    left:30px;
+    background:blue;
+    width:80px;
+    border-radius:10px;
+    text-align:center;
+}
+.side_content{
+    margin-top:5px;
+    color:white;
+}
+.sidemenu{
+    height:40px;
+}
+#head{
+    width:100%;
+    margin-bottom:10px;
+    position:relative;
+    font-weight:900;
+}
+#head_box{
+    width:100%;
+    margin:0 auto;
+    margin-bottom:10px;
+    position:relative;
+    background-size:contain;
+}
+#short_bar{
+    height:50px;
+    margin-bottom:10px;
+    position:relative;
+    display:inline-block;
+}
+.bar{
+    box-sizing:border-box;
+    width:200px;
+    margin-right:10px;
+    border-radius:5px;
+    background:lightblue;
+}
+#bar>.bar:nth-child(1){
+    background:blue;
+    padding-right:70px;
+}
+#bar>.bar:nth-child(2){
+    padding-right:70px;
+}
+#bar>.bar:nth-child(3){
+    padding-right:70px;
+}
+#comment{
+    margin-bottom:10px;
+    position:relative;
+}
+#foot{
+    margin-bottom:10px;
+    position:relative;
+}
+.foot_image1, .foot_image2, .foot_image3{
+    display:inline-block
+}
+.foot_image1{
+    background:url(../image/aurora.jpeg) no-repeat right;
+    background-size:contain;
+    width:250px;
+    height:200px;
+    position:relative;
+    margin-left:50px;
+}
+.foot_image2{
+    background:url(../image/forest.jpeg) no-repeat right;
+    background-size:contain;
+    width:250px;
+    height:200px;
+    position:relative;
+    margin-left:50px;
+}
+.foot_image3{
+    background:url(../image/sunset.jpeg) no-repeat right;
+    background-size:contain;
+    width:250px;
+    height:200px;
+    position:relative;
+    margin-left:50px;
+}

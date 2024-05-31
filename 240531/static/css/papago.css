@@ -1,0 +1,122 @@
+/*  style.css  */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+#wrap{
+    width:100%;
+    min-width:800px; /* 화면이 깨지지 않기 위한 최소 폭 */
+    position:relative;
+}
+#header{
+    width:100%;
+    padding:20px;
+    position:relative;
+    display:flex;
+    border-bottom:1px solid #aaa;
+}
+#header_left{ /* 평행 배치 3종 중 float은 추가 행이 필요하여 제외 나머지 두개 방법 확인하자 */
+    display:flex;
+    position:relative;
+    width:100%;
+}
+#header_left .logo{
+    width:130px;
+}
+#header_left .logo img{
+    /* width:130px */
+    height:35px;
+}
+#header_left .menu{
+    position:relative;
+}
+#header_left .menu .menu_txt:nth-child(2){
+    margin:0 10px;
+    position:relative;
+}
+#header_left .menu .menu_txt:nth-child(2){
+    content:"|";
+    position:absolute;
+    right:-10px;
+    bottom:-5px;
+    color:gray;
+}
+#header_right{
+    position:absolute;
+    top:30px;
+    right:20px; /* absolute는 부모의 padding을 무시하므로 padding 만큼 옮겨줘야 한다 */
+}
+#main{
+    width:1400px;
+    margin:0 auto;
+    padding:50px 0;
+    position:relative;
+    border-bottom:1px solid #ccc;
+}
+#main_box{
+    width:100%;
+    position:relative;
+}
+#main_box .translation{
+    width:685px;
+    position:relative;
+    top:0;
+    border:1px solid #ccc;
+    border-radius:10px;
+    overflow:hidden;
+}
+#main_box .translation_right{
+    position:absolute;
+    right:0;
+}
+#main_box .translation_top{
+    padding:20px 30px;
+    font-weight:700;
+}
+#main_box .translation_middle{
+    padding:40px 17px;
+    height:226px;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    position:relative;
+}
+#main_box .translation_middle .guide{
+    font-size:30px;
+    color:#777;
+    font-weight:600;
+}
+#main_box .translation_middle .count{
+    font-size:20px;
+    color:#aaa;
+    position:absolute;
+    right:20px;
+    bottom:40px;
+}
+#main_box .translation_bottom{
+    width:100%;
+    position:relative;
+    display:flex;
+}
+#main_box .translation_bottom .function{
+    display:flex;
+    width:75%;
+}
+#main_box .translation_bottom .function span{
+
+    height:70px;
+    width:70px;
+    border-right:1px solid #ccc;
+}
+#main_box .translation_bottom .translation_bt{
+
+    width:24.18%;
+}
+#main_box .translation_bottom .translation_bt button{
+    width:100%;
+    height:70px;
+    border:0;
+    font-size:23px;
+    background:#21dc6d;
+    color:white;
+}
