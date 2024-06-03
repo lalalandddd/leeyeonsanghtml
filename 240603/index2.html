@@ -1,0 +1,50 @@
+<!-- index2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 자바스크립트로 복습 </title>
+
+    <script>
+        /*
+        변수 : 단일 데이터가 저장된 메모리(ram) 공간
+        변수의 이름 : 의미 있게 카멜 표기법으로 작성하는게 일반적
+        변수명은 반드시 문자( _ - )로 시작해야 한다.
+        변수명은 시스템예약어로 사용하면 안 된다. 붉은 밑줄은 안뜨지만 동작이 안 됨.
+
+        자바스크립트 출력
+        1. document.write(내용)  : document → HTML 문서  write → body 태그에 쓰기
+            HTML 문서에서 body 객체 - 자바스크립트에서의 태그 표현
+        2. 
+        자바스크립트 입력
+        1. prompt(); 현재페이지에 내부 창을 만들어서 화면에 표시하는 방법
+            입력한 값은 문자열 → 숫자로 쓰려면 변환 함수(3종)를 사용해야 한다.
+        
+        */
+    </script>
+
+</head>
+<body>
+    <script>
+        /* 주유소에서 휘발유를 넣고자 한다. 휘발유는 1,636원이다.
+        gasolineCost=1636;
+        gasolineVolume=parseFloat(prompt("주유 휘발유 양 : "));
+        gasolinePrice=gasolineCost*gasolineVolume;
+        document.write("상품명 : 휘발유<br>단가 : "+gasolineCost+"원/리터<br>판매량 : "+gasolineVolume+"리터");
+        document.write("<br>주유 금액 : "+gasolinePrice+"원");
+        */
+
+        /* 삼각형의 넓이를 구하세요.
+        Math.floor(숫자); : 정수 부분만 추출해서 올림
+        Math.round(숫자); : 정수 부분만 추출해서 소숫점 이하를 반올림
+        숫자가 저장된 변수 num=20.345; 에서 소수점 1째 자리까지만 표현?
+        num.toFixed(1); = 20.3  (결과값은 문자열이다. 주의)
+        bottom=Number(prompt("삼각형의 밑변은?"));
+        height=Number(prompt("삼각형의 높이는?"));
+        tringle=Math.floor(bottom*height/2);
+        document.write("삼각형의 밑변 : "+bottom+"<br>삼각형의 높이 : "+height+"<br>삼각형의 넓이 : "+tringle);
+        */        
+    </script>
+</body>
+</html>
