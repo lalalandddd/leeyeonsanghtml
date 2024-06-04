@@ -1,0 +1,27 @@
+<!-- work1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 주차비를 정산하는 프로그램 만들기
+        // 기본 주차비 1000원, 기본 주차시간 30분 (39분 주차해도 1000원이다.)
+        // 이후 10분 당 100원 (10분 이상 주차할 경우 100원씩 부과한다.)
+        // 단, 2시간 이상 주차 시 기본 주차비는 1700원이다. (2시간 5분 : 1700원 2시간 23분 : 1900원)
+        // 4시간 이상 주차 시 기본 주차비는 2700원이다.
+        // 주차를 총 몇 분 하였는지 입력하면 주차비가 출력되어야 한다.
+        parking=Number(prompt("주차한 시간(분)을 입력하세요."));
+        basic=1000;
+        addFee=100;
+        parkingFee=basic+addFee*(parseInt(parking/10-3));
+        parkingFee=(parking>=120) ? parkingFee-200 : parkingFee;
+        parkingFee=(parking>=240) ? parkingFee-200 : parkingFee;
+        document.write("<br>주차 시간은 : "+parking+"분<br>");
+        document.write("주차 금액은 : "+parkingFee+"원");
+    </script>
+</body>
+</html>
