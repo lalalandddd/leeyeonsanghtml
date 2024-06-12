@@ -1,0 +1,83 @@
+<!-- jquery_test.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        // 아이디 비번 생년월일 입력하고 입력 버튼을 누르면 아래에 표시되도록 하기
+        // 개발자는 입력버튼 설정하고 입력칸 넣도록 설정
+        // 사용자는 입력하고 클릭하면 보임
+        // window.onload= == $()  $가 붙어야 jquery가 동작한다.
+        // jquery는 $()에 함수 이름만 넣어도 동작되는 게 있다.....????
+        // keyUp, keyDown, keyPress 함수 (키보드 관련 이벤트들)
+        // 아래 과정을 잘 숙지하고(한글에 과정 적어놓음) 직접 만들어보자......
+        $(function(){
+            $("#id").focus();  // 처음 창이 열리면 id(첫번째 입력칸)에 커서가 위치한다.
+            $("#inputBt").click(join);  // join이라는 함수가 동작한다(?)
+            $(document).keyup(function(e){
+                if( e.keyCode === 13 ){
+                    join();
+                }
+            });
+        });
+        function join(){  // input 태그에 입력한 값을 가져와서 div#check에 출력하기
+        // 입력한 데이터가 아니더라도 데이터가 필요하면 필요한 만큼 변수를 선언하여 사용
+            // var userId=document.getElementById("id").value;
+            var userId=$("#id").val();  // 아이디 입력값
+            var userPw=$("#pw").val();  // 비밀번호 입력값
+            var userBirth=$("#birth").val();  // 생년월일 입력값
+        // is : 참이냐 거짓이냐 표현할때 사용하는 변수 이름
+        // has : 값을 가지고 있는지 확인하기 위한 변수 이름
+            var isCheck=allInputCheck(userId,userPw,userBirth);  // 아이디 비번 생년월일 전부 입력했나?
+            // isCheck=isCheck ? birthCheck(userBirth):isCheck;  // 조건연산자(거짓의 경우를 표현하므로 이때는 좋지 않다.)
+            if(isCheck) isCheck=birthCheck(userBirth);  // if문(조건연산자보다 좋다.)
+            if(isCheck){
+                $("#check").html(`<div>아이디 : ${userId}</div> <div>비밀번호 : ${userPw}</div> <div>생년월일 : ${userBirth}</div>`);
+        // =innerText   html = innerHTML
+            }
+        }
+        function birthCheck(birth){  // 생년월일이 8자리인지 확인하는 함수
+            // alert(birth.length);  // 생년월일 글자수를 확인하여 알람
+            if(birth.length==8){  // 생년월일 8자리 맞다
+                return true;  // true값 반환하고 if문 종료
+            }
+            alert("생년월일(8자리)를 다시 입력하세요");
+            $("#birth").val('');  // 생년월일 칸 지우기
+            $("#birth").focus();  // 생년월일 칸에 커서 위치
+            return false;  // false값 반환하고 if문 종료
+        }
+        function allInputCheck(id,pw,birth){  // allInputCheck 함수 설정
+        // id=userId pw=userPw birth=userBirth 저장
+            if(id===''){  // '' = 비어있다.  null과 다르다! 자바의 undefine과도 다르다!
+                alert("아이디를 입력하세요");
+                $("#id").focus();  // id 입력칸이 비었다면 id 입력칸에 커서를 위치시킨다.
+                return false;  // if 함수를 종료하고 false 값을 반환한다.
+            } else if(pw===''){
+                alert("비밀번호를 입력하세요");
+                $("#pw").focus();
+                return false;
+            } else if(birth===''){
+                alert("생년월일을 입력하세요");
+                $("#birth").focus();
+                return false;
+            }
+            return true;  // if 함수를 종료하고 true 값을 반환한다.
+        }
+    </script>
+</head>
+<body>
+    <!-- 아래 내용은 원래 위의 스크립트에 넣고 이벤트로 등록 → 수정이 편하다. -->
+    <label>아이디 </label><input type="text" id="id"><br>
+    <label>비밀번호 </label><input type="password" id="pw"><br>
+    <label>생년월일 </label><input type="text" id="birth" placeholder="생년월일 8자리 입력하세요"><br>
+    <button id="inputBt">입력 </button>
+    <div id="check"></div>
+</body>
+</html>

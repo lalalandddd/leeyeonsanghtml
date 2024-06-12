@@ -1,0 +1,52 @@
+<!-- homework.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 내가 1~50 중 하나의 숫자를 내고, 컴퓨터가 '범위를 좁혀가면서' 수를 맞추도록 한다.
+        var i=1;
+        var h=0;
+        var a=0;
+        var min=1;
+        var max=50;
+        alert("내가 1~50 사이에서 제시한 수를 컴퓨터가 맞추기!");
+        while (i<11) {
+            user=Number(prompt("1~50 사이의 정수를 입력하세요."));
+            if (user<=50 && user>=1 && user%1==0) {
+                while (i<=10) {
+                    com=Math.floor(Math.random()*(max-min+1)+min);
+                    if (user==com) {
+                        document.write("<br>"+com+" 정답!");
+                        a=1;
+                        break;
+                    } else {
+                        if (user>com) {
+                            h="up";
+                            min=com+1;
+                        } else {
+                            h="down";
+                            max=com-1;
+                        }
+                        document.write("<br>컴퓨터의 수 "+com+"보다 "+h)
+                    }
+                    i++;
+                }
+                break;
+            } else {
+                alert("1~50 사이의 정수를 정확히 입력해 주세요.");
+            }
+        }
+        document.write("<br>내가 제시한 수는 "+user);
+        if (a==1) {
+            document.write("<br>컴퓨터는 "+i+"번 만에 내가 제시한 수 "+user+"을(를) 맞췄다!");
+        } else {
+            document.write("<br>내가 제시한 수를 못맞췄다! 이 컴퓨터는 빡대가리다!");
+        }
+    </script>
+</body>
+</html>

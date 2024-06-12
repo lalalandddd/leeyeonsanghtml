@@ -1,0 +1,41 @@
+<!-- homework.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 하나의 함수(function)로 사칙연산이 모두 되도록 작성해보시오
+        // 작성 실패... 오타 확인 철저히 하자 ㅠㅠ
+        function getData(op){
+            var n1=Number(document.getElementById("num1").value);
+            var n2=Number(document.getElementById("num2").value);
+            var n3=null;
+            var result=0;
+            switch(op){
+                case 'p1': result=n1+n2; n3="+";
+                    break;
+                case 'p2': result=n1-n2; n3="-";
+                    break;
+                case 'p3': result=n1*n2; n3="X";
+                    break;
+                case 'p4': result=n1/n2; n3="÷";
+                    break;
+            }
+            document.getElementById("result").innerHTML=`${n1} ${n3} ${n2} = ${result}`;
+        }
+    </script>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <br>
+    <button onclick="getData('p1')">더하기</button>
+    <button onclick="getData('p2')">빼기</button>
+    <button onclick="getData('p3')">곱하기</button>
+    <button onclick="getData('p4')">나누기</button>
+    <div id="result"></div>
+</head>
+<body>
+    
+</body>
+</html>

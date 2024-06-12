@@ -1,0 +1,35 @@
+<!-- 240605 homework answer.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user=0;
+        while(!(user<=50&&user>=1)) {
+            user=Number(prompt("1~50 중 하나 입력하세요"));
+            var max=50;  // 랜덤 범위의 최대값
+            var min=1;  // 랜덤 범위의 최소값
+            var mul=50;  // 랜덤 함수 최대값-최소값+1
+            while(true) {
+                com=Math.floor(Math.random()*mul+min);
+                if(user===com){
+                    document.write("정답!! com : "+com+", user : "+user);
+                    break; // while문 반복 종료
+                } else if(com<user) {  // 내가 입력한 값보다 작다면
+                    document.write(`UP!  (com : ${com})<br>`);
+                    min=com+1;  // 최소값은 컴퓨터의 값 +1
+                    mul=max-min+1;  // 랜덤 범위 변경
+                } else {  // 내가 입력한 값보다 크다면
+                    document.write(`DOWN!  (com : ${com})<br>`);
+                    max=com-1;  // 최대값은 컴퓨터의 값 -1
+                    mul=max-min+1;  // 랜덤 범위 변경
+                }
+            }
+        }
+    </script>
+</body>
+</html>

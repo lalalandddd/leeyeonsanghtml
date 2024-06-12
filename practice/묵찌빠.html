@@ -1,0 +1,36 @@
+<!-- 묵찌빠.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 컴퓨터와 대결하는 묵찌빠 만들기
+        // button으로 묵찌빠 누르는 칸 만들고 컴퓨터 칸 만들어 보자.....
+    </script>
+    <button onclick="rock()">묵</button>
+    <button onclick="scissors()">찌</button>
+    <button onclick="paper()">빠</button>
+    <div id="result"></div>
+ </head>
+ <body>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        #wrap{}
+        .box{}
+    </style>
+    <div id="wrap">
+        <div id="attack" class="box"></div>
+        <div id="computer" class="box"></div>
+        <div id="result" class="box"></div>
+        <div id="rock" class="box"></div>
+        <div id="scissor" class="box"></div>
+        <div id="paper" class="box"></div>
+    </div>
+ </body>
+ </html>

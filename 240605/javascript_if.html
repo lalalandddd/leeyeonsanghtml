@@ -1,0 +1,91 @@
+<!-- javascript_조건문 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 변수의 범위 (scope)
+        // 변수 생성, 변수 할당이라고 한다.
+        //
+        // let : 같은 변수를 쓸 수 없으므로 오류 발생 (변수 재생성 안 됨)
+        // let - {} 안에 변수 생성(지역변수), 전역변수, 배열 생성시, 객체 생성시
+        // var : 같은 변수를 쓸 수 있다. (변수 재생성 됨)
+        // var - {} 안에 변수 생성(지역변수)
+        // const : 변수의 데이터 변경 불가, 변수 재생성 불가
+        // const - 고유값, 변경되면 안 되는 값, 불변 데이터를 이름으로 표현하고자 할 때
+        // let a=10;
+        // a=20;
+        // // let a=30;  // 변수 재생성 안 되므로 오류 발생
+        // var b=10;
+        // b=20;
+        // var b=30;  // 변수 재생성 됨
+        // const c=30;  // 심볼릭 상수, 상수 - 데이터 읽기 권한만 있는 메모리 공간
+        // c=45;  // 변수의 데이터 변경 불가
+        // const c=23;  // 변수 재생성 불가
+        //
+        // 증가되는 최대값은 20이고, 감소되는 최소값은 -10이다.
+        // 최대와 최소에 도달하면 더 이상 증감되지 않게 하시오.
+        // count=0;  // 변수의 초기화 - 변수를 생성 또는 할당하면서 데이터를 저장하는 행위
+        // function up(){
+        //     if (count<20) {
+        //     count++;
+        //     }
+        //     // document - html 문서 (dom)
+        //     // .getElement - html 안에서 태그(Element)를 가져와라(get)
+        //     // .getElementById - html 안에서 Id로 찾아라.
+        //     // .getElementByClassName - html 안에서 Class로 찾아라.
+        //     var divBox=document.getElementById("box");
+        //     divBox.innerText=count;  // id가 box인 div태그 안에 count 변수 값을 써라.
+        // }
+        // function down(){
+        //     if (count>-10) {
+        //     count--;
+        //     }
+        //     divBox=document.getElementById("box");
+        //     divBox.innerText=count;
+        // }
+        //
+        // switch 문 - 메뉴같이 여러 개의 선택지 중 하나를 선택하여 동작
+        // switch ~ case 문 : case로 선택지를 만들고 switch로 선택하여 실행한다.
+        // switch 문의 }를 만날때까지 실행을 멈추지 않는다.
+        // case 뒤에 오는 데이터는 정수, 실수, 문자열, 상수 모두 가능
+        // break는 제어문의 실행을 중단시키는 기능을 가지고 있다.
+        // break는 if문에서 단독으로 사용하면 안 된다.
+        // switch(10) {  // 아래 case 중에서 () 안의 10에 해당하는 case를 고른다.
+        //     case 5:
+        //         document.write("5를 선택했네.");
+        //         break;
+        //     case 8:
+        //         break;
+        //     case 10:
+        //         document.write("10을 선택했네.");
+        //         break;
+        //     case 100:
+        //         break;
+        // }
+        //
+        menu=prompt("실행할 메뉴를 입력하세요 (복사-c, 붙여넣기-v, 잘라내기-x)");
+        switch(menu){
+            case "c":
+                document.write("복사 했습니다.");
+                break;
+            case "v":
+                document.write("붙여넣기 했습니다.");
+                break;
+            case "x":
+                document.write("잘라내기 했습니다.");
+                break;
+        }
+    </script>
+</head>
+<body>
+    <!-- onclick은 마우스로 html 태그를 클릭할 때의 동작을 처리하기 위한 이벤트이다.
+    태그를 클릭하면 onclick="함수명()"의 함수명 이라는 이름을 자바스크립트에서 찾아서
+    실행시킨다. 클릭하면 어떤 기능 또는 동작을 하고 싶은지 자바스크립트로 작성해야 한다. -->
+    <button onclick="up()">증가</button>  <!-- up()함수를 실행해라-->
+    <button onclick="down()">감소</button>  <!-- down()함수를 실행해라-->
+    <div id="box" style="font-size:40px;"></div>
+</body>
+</html>

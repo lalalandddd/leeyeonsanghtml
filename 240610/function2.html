@@ -1,0 +1,45 @@
+<!-- function2.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function save(){
+            var text=document.getElementById("data").value;
+            var list=document.getElementById("list");
+            list.innerHTML=list.innerHTML+"<li>"+text+"</li>";
+            list.appendChild(document.createElement("li"));
+        }
+        window.onload=function(){
+            document.getElementById("td1").addEventListener('click',save);
+        }
+    </script>
+ </head>
+ <body>
+    <h2>오늘의 나를 칭찬하기</h2>
+    <input type="text" id="data">
+    <button onclick="save()"> 저장 </button>
+    <ul id="list"></ul>
+    <table id="board">
+        <tr>
+            <td id="td1"></td>
+            <td id="td2"></td>
+            <td id="td3"></td>
+        </tr>
+        <tr>
+            <td id="td4"></td>
+            <td id="td5"></td>
+            <td id="td6"></td>
+        </tr>
+    </table>
+    <style>
+        #board{border-collapse:collapse;}
+        #board tr td{
+            border:1px solid black;
+            width:100px; height:100px;
+        }
+    </style>
+ </body>
+ </html>
