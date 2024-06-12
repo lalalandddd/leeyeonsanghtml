@@ -1,0 +1,126 @@
+<!-- javascript_if -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 자바스크립트의 조건문 - 조건에 따라 코드를 실행시키는 제어문이다.
+        // 조건문 - if~else , switch 문
+        // if : 조건식이 참/거짓 에 따라 코드를 실행한다.
+        // switch : 선택문에서 입력한 값에 맞는 코드를 선택하여 실행한다. (주로 F10의 메뉴칸)
+        // if문 기본 구조 - 조건식은 괄호() 안, 실행할 내용은 중괄호{} 안에 적는다.
+        // if(조건식) {참일 경우 실행할 내용} else {거짓일 경우 실행할 내용}
+        // if(조건식) {참 내용} else {if(조건식2) {참 내용} else {거짓 내용}} (복잡)
+        // if(조건식) {참 내용} else if(조건식) {참 내용} else {거짓 내용} (깔끔)
+        // addr="부산광역시";
+        // if(addr==="대전광역시") {  // 참 내용
+        //     document.write("구를 선택하세요");
+        //     document.write("<br>대덕구, 동구, 중구, 서구, 유성구");
+        // }else{  // 거짓 내용
+        //     document.write("옳바르지 않은 지역 선택입니다.");
+        //     document.write("<br>다시 선택하세요");
+        // }
+        // 
+        // 바이킹 키가 140 이상 탑승 가능
+        // tall=136;
+        // if(tall>=140) {
+        //     document.write("키 : "+tall);
+        //     document.write("<br>바이킹 탑승 가능");
+        // }else{
+        //     document.write("키 : "+tall);
+        //     document.write("<br>바이킹 탑승 불가");
+        // }
+        // 
+        // if문 작성할 때 참과 거짓에 실행할 코드가 하나라면 중괄호 생략 가능
+        // 변수의 초기화 - 변수에 ""를 대입하여 데이터를 지움  (result=""; 요금=0;)
+        // 변수는 (일부 임의변수 제외하고) 처음에 미리 정하고 들어갈 것.
+        // 내용을 작성하면서 변수를 넣으면 나중에 코드가 꼬여서 문제를 해결할 수 없다.
+        // "" : 변경해도 되는 문자열에 사용
+        // '' : 변경하면 안 되는 고유한 문자열에 사용
+        // 
+        // 조건연산자 문제를 if문으로 만들기
+        // 두 정수를 입력받아서 두 정수 중 작은 수 출력
+        // 두 정수가 같다면 같다 라고 출력
+        // num1=parseInt(prompt("첫번째 정수를 입력하세요"));
+        // num2=parseInt(prompt("두번째 정수를 입력하세요"));
+        // document.write(num1+' , '+num2+'<br>');
+        // if(num1==num2) {
+        //     document.write("같은 수입니다.");
+        // }else if(num1>num2) {
+        //     document.write(num1);
+        //     document.write("이(가) 큰 수입니다.");
+        // }else{
+        //     document.write(num2);
+        //     document.write("이(가) 큰 수입니다.");
+        // }
+        // 
+        // coin=Math.floor(Math.random()*2)+1;   // 0~2 사이의 수를 만들기
+        // user=Number(prompt("1.앞면 2.뒷면 동전 앞면뒷면 선택하세요"));
+        // if(coin==user) {
+        //     document.write("정답!");
+        // }else{
+        //     document.write("뙈행!");
+        // }
+        // 
+        // 6면 주사위 1개를 던진다. 주사위의 값이 4 또는 6이 나오면 10000원 받는다.
+        // dice=Math.floor(Math.random()*6+1);
+        // if (dice==4 || dice==6) {
+        //     document.write(dice+" 10,000원 받는다!");
+        // } else {
+        //     document.write(dice+" 땡!!!");
+        // }
+        // 
+        // 문제 : 가위바위보 컴퓨터랑 대결하기
+        // 가위=1, 바위=2, 보=3, 컴퓨터는 랜덤값, 나는 직접 입력(prompt)
+        // 이겼는지 졌는지 비겼는지 (승/무/패)를 표현하세요
+        // 내가 작성
+        rpsMe1=Math.floor(prompt("1=가위, 2=바위, 3=보 입력하세요"));
+        rpsMe2=0
+        rpsCom1=Math.floor(Math.random()*3)+1;
+        rpsCom2=0
+        error=0
+        if(rpsMe1==1) {rpsMe2="가위"} else if (rpsMe1==2) {rpsMe2="바위"} else  if (rpsMe1==3) {rpsMe2="보"} else {error="잘못 입력하셨습니다."};
+        if(rpsCom1==1) {rpsCom2="가위"} else if (rpsCom1==2) {rpsCom2="바위"} else {rpsCom2="보"};
+        if(rpsMe1<1 || rpsMe1>=4) {
+            document.write(error);
+        } else {
+            document.write("나 : "+rpsMe2+" / 컴퓨터 : "+rpsCom2+"<br>");
+            if(rpsMe1==rpsCom1) {
+            document.write("비겼다!");
+        } else if ((rpsMe1-rpsCom1)==1 || (rpsCom1-rpsMe1)==2) {
+            document.write("나의 승리!");
+        } else {
+            document.write("컴퓨터의 승리!");
+        }}
+        //
+        // 답안지
+        // com=Math.floor(Math.random()*3)+1;
+        // user=Number(prompt("1.가위, 2.바위, 3.보"));
+        // result=user-com;
+        // if(result==0) {
+        //     document.write("비겼다!");
+        // } else if(result==-2 || result==1) {
+        //     document.write("이겼다!");
+        // } else {
+        //     document.write("졌다!");
+        // }
+
+        // function start(){
+        //     // alert("오! 클랙했네?");
+        //     // document.write("오! 클랙했네?");
+        //     document.getElementById('print point').innerHTML="<br>넣고 싶은 글씨 아무거나 쓰세요";
+        // }
+    </script>
+
+    <body>
+        <!-- onclick="start()" 는 버튼 태그를 클릭하면 "자바스크립트에서 start라는
+            이름의 함수를 실행하라" 라는 뜻 -->
+        <!-- <button onclick="start()">나를 클릭해줘</button>
+        <h1 id='print point'></h1> -->
+    </body>
+</body>
+</html>

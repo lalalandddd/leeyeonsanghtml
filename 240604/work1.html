@@ -14,14 +14,33 @@
         // 단, 2시간 이상 주차 시 기본 주차비는 1700원이다. (2시간 5분 : 1700원 2시간 23분 : 1900원)
         // 4시간 이상 주차 시 기본 주차비는 2700원이다.
         // 주차를 총 몇 분 하였는지 입력하면 주차비가 출력되어야 한다.
-        parking=Number(prompt("주차한 시간(분)을 입력하세요."));
-        basic=1000;
-        addFee=100;
-        parkingFee=basic+addFee*(parseInt(parking/10-3));
-        parkingFee=(parking>=120) ? parkingFee-200 : parkingFee;
-        parkingFee=(parking>=240) ? parkingFee-200 : parkingFee;
-        document.write("<br>주차 시간은 : "+parking+"분<br>");
-        document.write("주차 금액은 : "+parkingFee+"원");
+
+        // 내가 만든 것
+        // parking=parseInt(prompt("주차한 시간(분)을 입력하세요."));
+        // basicFee=1000;
+        // basicTime=30;
+        // addFee=100;
+        // firstTime=120;
+        // firstDis=200;
+        // secondTime=240;
+        // secondDis=200;
+        // parkingFee=basicFee+addFee*(parseInt((parking-basicTime)/10));
+        // parkingFee=(parking>=firstTime) ? parkingFee-firstDis : parkingFee;
+        // parkingFee=(parking>=secondTime) ? parkingFee-secondDis : parkingFee;
+        // document.write("<br>주차 시간은 : "+parking+"분<br>");
+        // document.write("주차 금액은 : "+parkingFee+"원");
+
+        // 제시 답안
+        // cost=1000;
+        // parkingTime=3;
+        // add=100;
+        // cpt=Number(prompt("총 주차 시간 몇 분? "));
+        // cost=(cpt>=240) ? 2700 : (cpt>=120) ? 1700 : cost;
+        // // cost=(cpt>=120) ? 2700 : cost;
+        // parkingTime=(cpt>=240) ? 24 : (cpt>=120) ? 12 : parkingTime;
+        // time=Math.floor(cpt/10);
+        // price=(time<=parkingTime) ? cost : cost+(time-parkingTime)*add;
+        // document.write("주차시간 : "+cpt+"분 , 주차비 : "+price.toLocaleString()+"원<br>");
     </script>
 </body>
 </html>

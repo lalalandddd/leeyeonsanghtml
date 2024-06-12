@@ -15,7 +15,7 @@
         cup=Number(prompt("하루 마시는 소주 잔 수를 입력하세요."));
         minute=parseInt(soju*20*365*cup);
         hour=parseInt(minute/60);
-        day=parseInt(minute/3600);
+        day=parseInt(hour/24);
         document.write("<br>하루에 마시는 잔 수 : "+cup);
         document.write("<br>단축된 수명 : "+minute+"분 / "+hour+"시간 / "+day+"일");
     </script>
@@ -23,9 +23,9 @@
         // 두 개의 6면주사위를 던져서 같은 값이 나온다면 “당첨”, 아니면 “꽝” 출력
         dice1=Math.floor(Math.random()*6+1);
         dice2=Math.floor(Math.random()*6+1);
-        result1=(dice1==6) ? 1 : 0;
-        result2=(dice2==6) ? 1 : 0;
-        result3=((result1+result2)==2) ? "당첨" : "꽝";
+        // result1=(dice1==6) ? 1 : 0;
+        // result2=(dice2==6) ? 1 : 0;
+        result3=(dice1==dice2) ? "당첨" : "꽝";
         document.write("<br>주사위1 : "+dice1+"<br>주사위2 : "+dice2+"<br>결과 : "+result3);
     </script>
 </body>
