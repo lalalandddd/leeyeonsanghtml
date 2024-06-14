@@ -1,0 +1,107 @@
+<!-- javascript_array2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN -->
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+    </script>
+    <script>
+    // 배열 - 데이터를 저장하기 위한 연속적인 메모리 공간. 배열 각각의 공간 === 변수
+    // 배열 인덱스는 0부터 시작한다. 인덱스는 1씩 증가하므로 반복문이 필요하다.
+    // 배열 선언 (배열은 무조건 let > 드물게 var을 써야 하는 경우가 있다...)
+    // let arr1=[];  // 비어있는 배열 선언
+    // let arr2=[10,20,40];  // 3개의 데이터가 저장되어 있는 배열 선언
+    // let arr3=new Array();  // 비어있는 배열 선언
+    // let arr4=new Array(5);  // 비어있는 5개의 공간을 가진 배열 선언
+    // let size=10;  // size 함수에 10 부여
+    // let arr5=new Array(size);  // 비어있는 size(10개)의 공간을 가진 배열 선언
+    // const a=10;
+    // const arr6=[10,20,30];
+    // console.log(arr6);
+    // arr6[1]=50;
+    // console.log(arr6);
+    // let arr7=[1,2,3];
+    // let arr8=arr7;
+    // console.log(arr8);
+    //
+    // let score=[89,92,65,71,78,83,96,100,73,85];
+    // let small=score[0];
+    // for(var i=0; i<score.length; i++){
+    //     if(small>score[i]) small=score[i];
+    // }
+    // document.write("가장 작은 수 : "+small);
+    // document.write("<br>가장 작은 수는 몇번째인가? "+(score.indexOf(small)+1));
+    // let score=[];  // 비어있는 배열, score를 배열로 사용하겠다 선언
+    // 1~100 중의 랜덤값을 배열에 저장, 배열에 몇개 저장할까도 10~30 사이 랜덤
+    // len=Math.floor(Math.random()*21+10);
+    // for(i=0; i<len; i++){
+    //     score.push(Math.floor(Math.random()*100+1));
+    // }
+    // let small=score[0];
+    // for(var i=0; i<score.length; i++){
+    //     if(small>score[i]) small=score[i];
+    // }
+    // document.write("가장 작은 수 : "+small);
+    // document.write("<br>가장 작은 수는 몇번째인가? "+(score.indexOf(small)+1));
+    // 
+    // let score=[68,79,83,95,65];
+    // let stdName=["이순신","김유신","장영실","한석봉","임꺽정"];
+    // // .indexOf(데이터) 는 배열에서 해당 데이터가 몇 번째에 있는지를 반환한다.
+    // // 배열에 데이터가 없다면 -1을 반환한다.
+    // // 이순신 68점, 김유신 79점, .... 같이 출력하라. + 점수가 가장 높은 학생은?
+    // let len=score.length;
+    // let max=score[0]
+    // // let maxName=stdName[0]  // 나
+    // if(len>stdName.length)len=stdName.length;
+    // for(i=0; i<len; i++){
+    //     document.write(stdName[i]+" "+score[i]+"점, ");
+    //     // if(max<score[i])maxName=stdName[i];  // 나
+    //     if(max<score[i])max=score[i];
+    // }
+    // // document.write(stdName[i]+" "+score[i]+"점");  // 나
+    // // if(max<score[i])maxName=stdName[i];  // 나
+    // let idx=score.indexOf(max);  // 교사님
+    // document.write("<br>최고점자는 "+stdName[idx]);  // 교사님
+    // // document.write("<br>최고점자는 "+maxName);  // 나
+    // 
+    let imgName=["1.jpg","2.jpg","3.jpg"];
+    let i=0;  // 전역변수
+    $(function(){  // 0~2로 3개 사진을 표시
+    // for(i=0; i<imgName.length; i++){
+    //     $("#bg").attr('src', '../static/image/'+imgName[i]);
+    // }  // 작업이 완료된 후에야 화면에 표시 > 마지막 사진만 나옴 > 반복문은 쓰면 안 됨
+    // 시간 흐름 표시 함수 : setInterval, setTimeout
+    // setInterval(실행코드, 시간) : 지정된 시간 간격으로 실행  시간은 밀리세컨드
+    // setTimeout(실행코드, 시간) : 지정된 시간 이후 실행  시간은 밀리세컨드
+        // $("#bg").attr('src', '../static/image/'+imgName[0]);
+        // setTimeout(function(){
+        //     $("#bg").attr('src', '../static/image/'+imgName[1]);
+        // },3000);
+        // setTimeout(function(){
+        //     $("#bg").attr('src', '../static/image/'+imgName[2]);
+        // },6000);
+        setInterval(function(){
+            $("#bg").attr('src', '../static/image/'+imgName[i]);
+            i++;
+            if(i>=imgName.length)i=0;
+        },3000);
+        setInterval(function(){
+            $("#print").text("지금 이미지 인덱스 : "+i);
+        }, 2000);
+    });
+    </script>
+    <style>
+        #bg{width:500px;}
+    </style>
+</head>
+<body>
+    <img id="bg" src="">
+    <div id="print"></div>
+</body>
+</html>

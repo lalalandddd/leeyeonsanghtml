@@ -1,0 +1,67 @@
+<!-- javascript_array3.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        // let word=["한강","금강","낙동강","대전","부산","광주","세종"];
+        // // 단어를 배열에 저장하려고 한다.
+        // // 단어가 배열에 존재한다면 저장을 하지 않고, 배열에 없는 단어만 저장한다.
+        // function save(){
+        //     var text=$("#str").val();
+        //     if(word.indexOf(text)==-1){  // 배열 안에 입력한 값과 같은 문구가 없다?
+        //         word.push(text);  // 입력한 값을 배열 안에 저장
+        //         $("#error").text('');
+        //     }else{  // 배열 안에 입력한 값과 같은 문구가 있다?
+        //         $("#error").text("중복 단어 입니다. 다시 입력하세요.");  // 오류
+        //     }
+        //     $("#print").text(word);
+        // }
+        //
+        let board=[];  // 빈 배열 선언
+        $(function(){
+            init();  // 배열에 데이터 저장 (초기화 작업 시 init 또는 initial)
+            view();  // div#board(id가 board인 배열값 출력)
+        });
+        function init(){  // 1~50 사이 랜덤값 배열에 25개 저장
+            // for(var i=1; i<=25; i++){
+            //     var a=Math.floor(Math.random()*50+1);
+            //     if(board.indexOf(a)==-1){
+            //         board.push(a);
+            //     }else{
+            //         i-=1;
+            //     }
+            // }
+            while(board.length!=25){
+                var a=Math.floor(Math.random()*50+1);
+                if(board.indexOf(a)==-1){
+                    board.push(a);
+                }
+            }
+        }
+        function view(){  // div#board에 출력하기, 5 X 5 로
+            let num='';
+            for(var row=0; row<5; row++){  // 5줄 (row)
+                num+='<p>';
+                for(var col=0; col<5; col++){  // 5칸 (collum)
+                    num+="<span>"+board[row*5+col]+"</span>";
+                }
+                num+='</p>';
+            }
+            $("#board").html(num);
+        }
+    </script>
+    <style> span{display:inline-block; width:50px;}</style>
+</head>
+<body>
+    <!-- <input type="text" id="str">
+    <p id="error" style="font-size:10px; color:red;"></p>
+    <button onclick="save()">저장</button>
+    <div id="print"></div> -->
+    <div id="board"></div>
+</body>
+</html>
