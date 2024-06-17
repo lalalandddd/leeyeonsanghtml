@@ -1,0 +1,90 @@
+<!-- javascript_array4.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+    // 배열 - 배열 생성, 배열에 저장되어있는 값이 무었인가? 배열 사용(출력, 계산)
+    // var arr=[10,20,30,40,50];
+    // for(var i=0; i<arr.length; i++){
+    //     $("#show").append("<p>"+arr[i]+"</p>");
+    // }
+    // 
+    // 배열에 직접 숫자를 입력하지 않고, 태그를 달아서 배열에 입력하자
+    // const name=["김나라","이발소","유리한","홍길동","박수무","정약용","최무식","임꺽정","송해"];
+    // $(function(){  // window.onload > 브라우저에 모두 표시된 후 실행
+    // jquery에서 태그를 선택한 경우 .eq()로 인덱스를 표현  예: $(".item").eq();
+    //     let item=$(".item");  // document.getElementsByClassName("item") = jquery 안쓸경우
+    //     console.log(item.length);
+    //     for(var i=0; i<item.length; i++){  // name 배열 값을 li 태그에 무작위로 출력하자.
+    //         var idx=Math.floor(Math.random()*name.length);  // 배열은 0부터이므로 +1이 필요 없다!
+    //         item.eq(i).text(name[idx]);  // item[i] - 위에서 jquery를 사용했으면 여기도 jquery 사용
+    //     }
+    // });
+    // let num=new Array(26);  // 26개의 빈공간을 가진 배열 생성
+    // let word="i like tomato";
+    // 문자열은 배열이다. 문자열은 문자가 2개 이상 연속적으로 표현된 것을 의미한다.
+    // "abcd" > 문자 4개, "a"
+    // console.log(num);
+    // for(var i=0; i<num.length; i++) num[i]=0;  // num 배열 0으로 초기화
+    // console.log("a".charCodeAt(0));
+    // i like tomato 에서 각 알파벳이 몇 개씩 있는가?
+    // for(var i=0; i<word.length; i++){
+    //     console.log(word.charCodeAt(i));
+    //     if(word.charCodeAt(i)>=97&&word.charCodeAt(i)<=122)
+    //     num[word.charCodeAt(i)-97]++;
+    // }
+    // console.log(word[2]);
+    // var a=["abc","defg"];  // var은 재선언이 가능하다. 함수 스코프??
+    // console.log(a[0]);  // 함수의 {}에 사용 가능 영역, 제어문 {} 벗어난다.
+    // console.log(a[1]);  // 함수 안에서 var 배열을 사용하면
+    // console.log(a);  // 배열의 주소가 첫번째 문자열의 주소로 지정되는 경우가
+    // console.log(a[0][1]);  // 발생한다. 문자열을 외부에서 받아오는 경우 주로 발생
+    // 위의 경우 때문에 배열을 만들 때, 문자가 있다면 var 쓰면 안됨
+    //
+        let score=[70,30,40,80,0,10,50,90,60,100];
+        let stdName=["이순신","강감찬","장보고","최무선","문익점","장영실","정도전","이성계","이방원","계백"];
+        // let rank=[10,8,4,1,9,7,3,2,6,5];
+        let temp=[];
+        for(var i=0;i<score.length;i++){
+            temp.push(score[i]);
+        }
+        temp.sort((a,b)=>b-a);  // 배열 내림차순 > sort() + reverse()
+        console.log(temp);
+        let rank=[];
+        // 1등 : stdName[rank[0]-1];
+        for(var i=0;i<score.length;i++){
+            rank.push(score.indexOf(temp[i]));
+        }
+        console.log(rank);
+        console.log("1등 : "+stdName[rank[0]]);
+    </script>
+</head>
+<body>
+    <!-- <ul id="list">
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+    </ul> -->
+</body>
+</html>
