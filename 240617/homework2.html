@@ -50,19 +50,15 @@
             $("#wrap").html(out);
         });
         $(document).keyup(function(event){
-            var key=event.keyCode;  // w(↑)-87, a(←)-65, s(↓)-83, d(→)-68
+            var key=event.keyCode;
             switch(key){
-                case 87:  // (↑)
-                    yy=y-1; xx=x;
+                case 87: yy=y-1; xx=x;  // (↑)
                     break;
-                case 65:  // (←)
-                    yy=y; xx=x-1;
+                case 65: yy=y; xx=x-1;  // (←)
                     break;
-                case 83:  // (↓)
-                    yy=y+1; xx=x;
+                case 83: yy=y+1; xx=x;  // (↓)
                     break;
-                case 68:  // (→)
-                    yy=y; xx=x+1;
+                case 68: yy=y; xx=x+1;  // (→)
                     break;
             }
             if(board[yy][xx]==0){
