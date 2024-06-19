@@ -1,0 +1,43 @@
+<!-- json_data.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     let student={name:"이순신", age:19, tall:172};  // 자바스크립트에서만 사용
+    //     document.write(student.name);
+    // // JSON.stringify → 자바스크립트 객체를 문자열로 변환
+    // // JSON.parse → 문자열을 자바스크립트 객체로 변환
+    //     let str=JSON.stringify(student);
+    //     document.write("<br>"+str);
+    //     let std=JSON.parse(str);
+    //     document.write("<br>"+std.age);
+    // json 확장자로 된 파일 : 주석이 안 걸림 (문자만 있다고 취급하기 때문....)
+    // json 확장자 안에서 {}로 구분 → {} 안의 내용을 객체로 바꾸기 위해서
+    // 
+    // student.json 파일에서 자료를 가져와야 한다. 어떻게?
+    // xml
+    const xml=new XMLHttpRequest();
+    xml.onload=function(){  // 윈도우와 마찬가지로... 모두 로드 된 후에 진행하기
+        var std=JSON.parse(this.responseText);
+        view(std);
+        // document.write(std.name);
+        // document.write(std.age);
+    };
+    xml.open("GET","student.json");  // 받기
+    xml.send();  // 보내기
+    function view(std){
+        for(var i=0;i<std.length;i++){
+            if(std[i].name[2].indexOf("신")!=-1){
+                document.write(std[i].name+" "+std[i].age+" "+std[i].tall+"<br>");
+            }
+            // document.write(std[i].name+" "+std[i].age+" "+std[i].tall+"<br>");
+        }
+    }
+    </script>
+</body>
+</html>
