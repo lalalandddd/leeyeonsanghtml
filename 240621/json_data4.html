@@ -1,0 +1,58 @@
+<!-- json_data4.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function move(){
+            setTimeout(function(){
+                location.href="https://www.naver.com";
+            },3000);
+        }
+    </script>
+</head>
+<body>
+    <!-- <a href=""> 태그를 사용하여 "" 안에 입력한 사이트로 이동하게 만듦 -->
+    <!--
+    web 데이터 전달 방식: GET,POST,DELETE,PUT,PATCH,TRACE,HEAD,POTIONS,CONNECT
+    GET : 전달하는 값을 있는 그대로 전달, 파라미터(쿼리)
+        예 http://www.naver.com?name=이순신&age=19 백엔드(?뒤)를 정확히 알아야 한다.
+        브라우저 히스토리(방문기록)에 저장된다. 브라우저마다 다르지만... 길이 제한이 있다.
+    POST : 
+    DELETE : 
+    PUT : 
+    PATCH : 
+    TRACE : 
+    HEAD : 
+    POSITON : 
+    CONNECT : 
+
+    브라우저 운영 객체 : window, history, screen, location, document, navigator
+    -->
+    <a href="https://www.naver.com">네이버</a><br>
+    <a href="javascript:move();">3초 뒤 네이버 이동</a><br>
+    <a href="https://comic.naver.com/webtoon">네이버웹툰</a><br>
+    <a href="https://comic.naver.com/webtoon/list?titleId=773797&tab=fri">나혼자만렙뉴비</a><br>
+    <a href="./login.html">로그인</a><br>
+    <div id="movie" style="height:1000px;">
+        <a href="#movie">영화</a>
+        <a href="#webtoon">웹툰</a>
+        <a href="#game">게임</a>
+        <h2>여기는 영화</h2>
+    </div>
+    <div id="webtoon" style="height:1000px;">
+        <a href="#movie">영화</a>
+        <a href="#webtoon">웹툰</a>
+        <a href="#game">게임</a>
+        <h2>여기는 웹툰</h2>
+    </div>
+    <div id="game" style="height:1000px;">
+        <a href="#movie">영화</a>
+        <a href="#webtoon">웹툰</a>
+        <a href="#game">게임</a>
+        <h2>여기는 게임</h2>
+    </div>
+</body>
+</html>
