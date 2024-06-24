@@ -1,20 +1,34 @@
 /* index_signup.js */
 $(function(){
-    $("#signup").on('click',requiredCheck);  // 회원가입버튼 클릭 이벤트
-    $("#signup").on('click',function(){
-    // jquery에서 checkbox 중 체크한 것만 가져오려면?
-    // $("input[name=interest]:checked")  :checked 붙여야 체크한 것만 가져온다.
-        alert($("input[name=interest]:checked").length);  // 체크 숫자 확인
-        let itr=$("input[name=interest]:checked");
-        let value=[];
-        for(var i=0;i<itr.length;i++){
-            value.push($(itr[i]).val());
-        }  // 이렇게 적어야 체크한 모든 값을 보여준다......
-        alert("체크한 관심분야 : "+value);
-        // let interest=$("input[name=interest]:checked").val();
-        // alert(interest);  // 이렇게 두 줄만 하면 체크한 것 중 제일 처음만 보여준다.
-        // $("#signupForm").submit();
+    $("#portrait").on("change",function(e){
+        // console.log($(this).val());
+        console.log(e.target.files);  // 파일에 대한 내용
+        var file=e.target.files[0];  // 파일에 대한 정보는 0번째 인덱스에 있다.
+        var reader=new FileReader();  // 파일을 열기 위한 객체 생성
+        reader.onload=function(e){  // 파일 열기가 완료되면
+            console.log(e.target.result);  // 
+            var path=e.target.result;
+            $("#preview").css("background","url("+path+") no-repeat center");
+            $("#preview").css("background-size","contain");
+            // 이미지태그.attr("src", 경로)
+        }
+        reader.readAsDataURL(file);
     });
+    $("#signup").on('click',requiredCheck);  // 회원가입버튼 클릭 이벤트
+    // $("#signup").on('click',function(){
+    // // jquery에서 checkbox 중 체크한 것만 가져오려면?
+    // // $("input[name=interest]:checked")  :checked 붙여야 체크한 것만 가져온다.
+    //     alert($("input[name=interest]:checked").length);  // 체크 숫자 확인
+    //     let itr=$("input[name=interest]:checked");
+    //     let value=[];
+    //     for(var i=0;i<itr.length;i++){
+    //         value.push($(itr[i]).val());
+    //     }  // 이렇게 적어야 체크한 모든 값을 보여준다......
+    //     alert("체크한 관심분야 : "+value);
+    //     // let interest=$("input[name=interest]:checked").val();
+    //     // alert(interest);  // 이렇게 두 줄만 하면 체크한 것 중 제일 처음만 보여준다.
+    //     // $("#signupForm").submit();
+    // });
 });
 function requiredCheck(){  // 필수 입력을 모두 입력했는가?
     var id=$("#uesrId");  // 아이디
@@ -47,6 +61,9 @@ function requiredCheck(){  // 필수 입력을 모두 입력했는가?
         alert("주소를 입력하세요");
         addr.focus();
     }else{  // 위의 6개 항목이 모두 거짓(=제대로 입력)이라면 동작
+        // localstorage에 저장
+        var user={id:id.val(), pw:pw.val(), email:email.val(), tel:tel.val(), addr:addr.val()}
+        localStorage.setItem("user",JSON.stringify(user));
         $("#signupForm").submit();
     }
 }
