@@ -1,0 +1,92 @@
+/* house_main.css */
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+#wrap{
+    width:1000px;
+    margin:0 auto;
+}
+#head{
+    width:100%;
+    position:relative;
+}
+#head .headUp{
+    width:100%;
+    text-align:center;
+    font-size:30px;
+    border-bottom:1px solid blue;
+}
+#filter{
+    width:100%;
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    flex-basis:10%;
+    flex-direction:row;
+    position:relative;
+    justify-content:space-between;
+}
+#filterL{
+    width:900px;
+    left:0;
+    display:flex;
+    position:relative;
+    gap:20px;
+}
+#filter .filterBox{
+    position:relative;
+    margin-right:10px;
+}
+#filter .filterBox button{
+    padding:2px 15px;
+    cursor:pointer;
+}
+#filter .input input{
+    height:25px;
+    font-size:15px;
+}
+#filter .input p{
+    font-size:18px;
+    position:relative;
+    bottom:25px;
+    left:155px;
+}
+#filterR{
+    width:100px;
+    text-align:right;
+    padding-right:50px;
+}
+#advice{
+    font-size:20px;
+    position:absolute;
+}
+#house{
+    width:100%;
+    display:flex;
+    margin-top:20px;
+    gap:50px;
+    flex-wrap:wrap;
+    position:relative;
+}
+.houseBoard{
+    width:200px;
+    cursor:pointer;
+}
+.houseImageSmall{
+    width:200px;
+    height:250px;
+}
+.houseBoard .houseImageSmall img{
+    width:200px;
+    height:250px;
+    border-radius:5px;
+    display:block;
+    display:flex;
+    flex-wrap:wrap;
+}
+.houseDetailSmall{
+    width:200px;
+    margin-top:10px;
+}
