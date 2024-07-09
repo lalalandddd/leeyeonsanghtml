@@ -1,0 +1,109 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script></script>
+</head>
+<body>
+<!--
+브라우저에서 이벤트란? 사용자가 하는 모든 행위. 모두 자바스크립트로 처리해야 한다. html(X) CSS(X)
+간단한 것, 사소한 것은 CSS로 실행할 수 있긴 하지만 모두 처리할 수는 없다.
+document.getElementById("a").addEventListener("click",function(){
+    내용
+});
+document.getElementById.addEventListener    단일 선택
+document.getElementsByClassName.addEventListener 다중
+document.getElementsByTagName.addEventListener 다중
+document.getElementsByName.addEventListener 다중  => 다중 = [배열]  (하나뿐이어도 배열!)
+-->
+    <div id="box1" class="b">나 div</div>
+    <p class="a">나 p</p>
+    <span class="a">나 span</span>
+    <b id="text1" class="b">나 b</b>
+    <style>
+        #selectMenu{
+            position:relative;
+            top:-200px;
+            left:250px;
+            width:200px;
+            height:200px;
+            border:2px solid #aaa;
+            border-radius:7px;
+            font-size:30px;
+            color:blue;
+            text-align:center;
+            line-height:200px;
+        }
+    </style>
+    <div id="lunch">
+        <h3>점심 메뉴를 고르세요</h3>
+        <ol>
+            <li class="menu">짬뽕</li>
+            <li class="menu">짜장면</li>
+            <li class="menu">탕수육</li>
+            <li class="menu">팔보채</li>
+            <li class="menu">돈가스</li>
+            <li class="menu">쭈꾸미볶음밥</li>
+            <li class="menu">콩나물국밥</li>
+            <li class="menu">잔치국수</li>
+        </ol>
+    </div>
+    <div id="selectMenu"></div>
+    <script>
+        document.getElementById("box1").addEventListener("click",function(){
+            alert("div태그맞아!");
+        });
+        document.getElementsByClassName("a")[0].addEventListener("click",function(){
+            alert("p태그맞아!");  // [0] 없으면 작동하지 않는다.
+        });
+        document.getElementsByClassName("a")[1].addEventListener("click",function(){
+            alert("span태그맞아!");
+        });
+        document.getElementById("text1").addEventListener("click",function(){
+            alert("b태그맞아!");
+        });
+        // jquery 적용하면?
+        $(".a").eq(0).click(function(){alert("p태그맞아아!!");});  // .eq(0) 가 배열 역할. 없으면 a 두개 모두 작동한다.
+        $(".a").eq(1).on("click",function(){alert("난span태그다!");});  // on:이벤트활성화 off:이벤트비활성화
+        // 이름있는 함수, 이름없는 함수(익명함수) 사용법 확인!
+        $(".a").eq(1).on("click",event1);  // 함수이름 지정
+        function event1(){  // 이름있는 함수
+            alert("span태그2!!!!");  // span 태그를 클릭해서 할 일
+        }
+        $("#box1").on("click",event2);  // div 클릭해서 b태그 밑에 div 태그 만들고 로또1등되면 좋겠다 출력하게 하자?
+        function event2(){  // b태그는 body 안의 맨끝에 있음
+            $("body").append("<div>로또1등되면 좋겠다.</div>");
+        }
+        // span 태그 클릭하면 id가 box1인 태그 안에 h2태그를 만들고 태그 안에 비야 그만와! 출력하자?
+        $(".a").eq(1).on("click",event3);
+        function event3(){
+            $("#box1").append("<h2>비야 그만와!</h2>");
+            $(this).hide();  // span 태그 내용을 숨김
+            // hide = display:none;  show = display 값을 원래값으로 돌려놓기
+        }
+        // 한줄로 하면 $(".a").eq(1).on("click",function(){$("#box1").append("<h2>비야 그만와!</h2>");});
+        // id가 box1인 태그를 클릭하면 span 태그를 보이게 하고 box1 태그 안을 비우기
+        $("#box1").on("click",event4);
+        function event4(){
+            $(".a").eq(1).show();
+            $(this).find("he").remove();  // remove() 태그 자체를 지움 empty() 태그 안을 제거
+        }
+        // 나b를 클릭하면 글자 색이 붉은색으로 변경되도록 해보자?
+        $("#text1").on("click",event5);
+        function event5(){
+            $(this).css("color","red");
+        }
+
+        $(".menu").on("click",selectMenu);  // 자바스트립트면 반복문으로 모든 menu 다 클릭이벤트 걸었어야 하지만...
+        function selectMenu(){
+            var menu=$(this).text();  // 클릭한 글자를 가져와서 menu에 저장
+            $("#selectMenu").text(menu);
+        }
+    </script>
+</body>
+</html>
