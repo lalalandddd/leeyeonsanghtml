@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+        h3{text-align:center;}
+        #wordList{width:500px; margin:0 auto;}
+        ul{list-style-type:none; padding:0; margin:0;}
+        .itemTitle{display:flex;}
+        .sup{width:300px;}
+        .qua{width:100px;}
+        .rem{width:100px;}
+        #itemList li{padding-bottom:10px; display:flex;}
+        #word2{width:200px;}
+        #word1{width:50px;}
+    </style>
+    <h3>여행 준비물</h3>
+    <input type="text" id="word" name="word">
+    <input type="text" id="ea" name="ea">
+    <button onclick="save()">등록</button>
+    <script>
+        let nowUpdate=null;
+        function save(){
+            let word=$("#word").val();  // 작성값 가져오기
+            let ea=$("#ea").val();
+            $("#word").val('');  // 작성 칸 비우기
+            $("#word").focus();
+            $("#ea").val('');  // 작성 칸 비우기
+            $("#itemList").append(
+                `<li>
+                    <div class="sup"> ${word} </div>
+                    <div class="qua"> ${ea} </div>
+                    <div class="rem"><button class="update">수정</button>
+                    <button class="del">삭제</button></div>
+                </li>`);
+            $(".del").on("click",remove);
+            $(".update").on("click",update);
+        }
+        function update(){
+            if(nowUpdate==null){
+                nowUpdate=$(this);
+                var q=$(this).parent().prev();
+                var s=q.prev();
+                q.html('<input type="text" id="word1" value="'+q.text()+'">');
+                s.html('<input type="text" id="word2" value="'+s.text()+'">');
+            }else {
+                var q=$(this).parent().prev();
+                var s=q.prev();
+                q.text($("#word1").val());
+                s.text($("#word2").val());
+                nowUpdate=null;
+            }
+        }  // 형제 태그 찾기 : siblings(), next(), prev()
+        function remove(){
+            $(this).parent().parent().remove();
+        }
+    </script>
+    <div id="wordList">
+        <ul class="itemTitle">
+            <li class="sup">준비물</li>
+            <li class="qua">수량</li>
+            <li class="rem">비고</li>
+        </ul>
+        <ul id="itemList">
+            <li class="sup"></li>
+            <li class="qua"></li>
+            <li class="rem"></li>
+        </ul>
+    </div>
+</body>
+</html>
