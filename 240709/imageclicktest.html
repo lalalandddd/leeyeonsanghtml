@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        #imageContainer {
+            width: 700px;
+            height: 400px;
+            position: relative;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        #imageContainer img {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #imageContainer img.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="imageContainer">
+        <img src="./image/나무.jpg" class="active" alt="이미지 1">
+        <img src="./image/아무산.jpg" alt="이미지 2">
+        <img src="./image/지리산.jpg" alt="이미지 3">
+        <img src="./image/카자흐.jpg" alt="이미지 4">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let currentIndex = 0;
+            const images = $("#imageContainer img");
+
+            function showImage(index) {
+                images.removeClass("active");
+                images.eq(index).addClass("active");
+            }
+
+            $("#imageContainer").on("click", function(event) {
+                const containerHeight = $(this).height();
+                const clickY = event.clientY - $(this).offset().top;
+
+                if (clickY < containerHeight / 2) {
+                    // 상부 클릭 시 이전 이미지
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+                } else {
+                    // 하부 클릭 시 다음 이미지
+                    currentIndex = (currentIndex + 1) % images.length;
+                }
+
+                showImage(currentIndex);
+            });
+        });
+    </script>
+</body>
+</html>

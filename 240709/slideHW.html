@@ -1,0 +1,77 @@
+<!-- slideHW.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./slideHW.css">
+</head>
+<body>
+    <div id="imageContainer">
+        <div id="slide">
+            <ul id="slideImg">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <button id="up">위쪽</button><button id="down">아래쪽</button>
+        <div>
+            <b>위/아래 버튼, w/s키</b>
+        </div>
+    </div>
+    <!-- <div id="drag">
+        <div id="slide">
+            <ul id="slideImg">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div> -->
+</body>
+</html>
+<script>
+    let pos=0;
+    $("#down").on("click",function(){
+        pos=pos+400;
+        if(pos==1600)pos=0;
+        $("#slideImg").css("bottom",pos+"px");
+    });
+    $("#up").on("click",function(){
+        pos=pos-400;
+        if(pos==-400)pos=1200;
+        $("#slideImg").css("bottom",pos+"px");
+    });
+    $(document).keyup(function(event){
+        var key=event.keyCode;
+        switch(key){
+            case 83: pos=pos+400; if(pos==1600)pos=0;  // (↑)
+                break;
+            case 87: pos=pos-400; if(pos==-400)pos=1200;  // (↓)
+                break;
+        }
+        $("#slideImg").css("bottom",pos+"px");
+    });
+    $(document).ready(function() {
+        const images = $("#slideImg li");
+        $("#imageContaner").on("click",function(event){
+            const height=$(this).height();
+            const click=event.clientY-$(this).offset().top;
+            if(click<height/2){
+                pos=pos-400;
+                if(pos==-400)pos=1200;
+                $("#slideImg").css("bottom",pos+"px");
+            }else{
+                pos=pos+400;
+                if(pos==1600)pos=0;
+                $("#slideImg").css("bottom",pos+"px");
+            }
+        });
+    });
+</script>

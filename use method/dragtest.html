@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        #dragElement {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="dragElement">드래그</div>
+
+    <script>
+        $(document).ready(function() {
+            let isDragging = false;
+            let offset = { x: 0, y: 0 };
+
+            $("#dragElement").on("mousedown", function(event) {
+                isDragging = true;
+                offset.x = event.clientX - $(this).offset().left;
+                offset.y = event.clientY - $(this).offset().top;
+                $(this).css("cursor", "move");
+            });
+
+            $(document).on("mousemove", function(event) {
+                if (isDragging) {
+                    $("#dragElement").css({
+                        left: event.clientX - offset.x + "px",
+                        top: event.clientY - offset.y + "px"
+                    });
+                }
+            });
+
+            $(document).on("mouseup", function() {
+                isDragging = false;
+                $("#dragElement").css("cursor", "pointer");
+            });
+        });
+    </script>
+</body>
+</html>

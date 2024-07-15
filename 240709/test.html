@@ -63,12 +63,12 @@
 </html>
 <script>
     let pos=0;
-    $("#left").on("click",function(){
+    $("#right").on("click",function(){
         pos=pos+700;
         if(pos==2800)pos=0;
         $("#slideImg").css("right",pos+"px");
     });
-    $("#right").on("click",function(){
+    $("#left").on("click",function(){
         pos=pos-700;
         if(pos==-700)pos=2100;
         $("#slideImg").css("right",pos+"px");

@@ -1,0 +1,53 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+#imageContainer{
+    width:700px;
+    height:425px;
+    cursor:pointer;
+}
+#slide{
+    width:700px;
+    height:400px;
+    overflow:hidden;
+}
+#slideImg{
+    list-style-type:none;
+    width:700px;
+    height:1600px;
+    position:relative;
+    border-radius:5px;
+    padding:0;
+    margin:0;
+    display:block;
+    transition:bottom 1s;
+}
+li:nth-child(1){
+    width:700px;
+    height:400px;
+    background:url(./image/나무.jpg) no-repeat center;
+    background-size:cover;
+}
+li:nth-child(2){
+    width:700px;
+    height:400px;
+    background:url(./image/아무산.jpg) no-repeat center;
+    background-size:cover;
+}
+li:nth-child(3){
+    width:700px;
+    height:400px;
+    background:url(./image/지리산.jpg) no-repeat center;
+    background-size:cover;
+}
+li:nth-child(4){
+    width:700px;
+    height:400px;
+    background:url(./image/카자흐.jpg) no-repeat center;
+    background-size:cover;
+}
+button:hover{
+    cursor:pointer;
+}
