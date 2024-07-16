@@ -6,12 +6,12 @@
 #imageContainer{
     width:700px;
     height:425px;
-    cursor:pointer;
 }
 #slide{
     width:700px;
     height:400px;
     overflow:hidden;
+    cursor:pointer;
 }
 #slideImg{
     list-style-type:none;

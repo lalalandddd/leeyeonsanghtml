@@ -21,7 +21,10 @@
         </div>
         <button id="up">위쪽</button><button id="down">아래쪽</button>
         <div>
-            <b>위/아래 버튼, w/s키</b>
+            <b>1. 위/아래 버튼</b><br>
+            <b>2. w/s키</b><br>
+            <b>3. 그림 상단/하단 클릭</b><br>
+            <b>4. 마우스 휠 상/하</b>
         </div>
     </div>
     <!-- <div id="drag">
@@ -45,7 +48,7 @@
     });
     $("#up").on("click",function(){
         pos=pos-400;
-        if(pos==-400)pos=1200;
+        if(pos<0)pos=1200;
         $("#slideImg").css("bottom",pos+"px");
     });
     $(document).keyup(function(event){
@@ -53,25 +56,35 @@
         switch(key){
             case 83: pos=pos+400; if(pos==1600)pos=0;  // (↑)
                 break;
-            case 87: pos=pos-400; if(pos==-400)pos=1200;  // (↓)
+            case 87: pos=pos-400; if(pos<0)pos=1200;  // (↓)
                 break;
         }
         $("#slideImg").css("bottom",pos+"px");
     });
     $(document).ready(function() {
-        const images = $("#slideImg li");
-        $("#imageContaner").on("click",function(event){
+        $("#slide").on("click",function(event){
             const height=$(this).height();
             const click=event.clientY-$(this).offset().top;
             if(click<height/2){
                 pos=pos-400;
-                if(pos==-400)pos=1200;
-                $("#slideImg").css("bottom",pos+"px");
+                if(pos<0)pos=1200;
             }else{
                 pos=pos+400;
-                if(pos==1600)pos=0;
-                $("#slideImg").css("bottom",pos+"px");
+                if(pos>=1600)pos=0;
             }
+            $("#slideImg").css("bottom",pos+"px");
+        });
+    });
+    $(document).ready(function() {
+        $("#slide").on("wheel",function(event){
+            if(event.originalEvent.deltaY<0){
+                pos=pos-400;
+                if(pos<0)pos=1200;
+            }else{
+                pos=pos+400;
+                if(pos>=1600)pos=0;
+            }
+            $("#slideImg").css("bottom",pos+"px");
         });
     });
 </script>
