@@ -27,23 +27,13 @@
             <b>4. 마우스 휠 상/하</b>
         </div>
     </div>
-    <!-- <div id="drag">
-        <div id="slide">
-            <ul id="slideImg">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-    </div> -->
 </body>
 </html>
 <script>
     let pos=0;
     $("#down").on("click",function(){
         pos=pos+400;
-        if(pos==1600)pos=0;
+        if(pos>1500)pos=0;
         $("#slideImg").css("bottom",pos+"px");
     });
     $("#up").on("click",function(){
@@ -54,9 +44,13 @@
     $(document).keyup(function(event){
         var key=event.keyCode;
         switch(key){
-            case 83: pos=pos+400; if(pos==1600)pos=0;  // (↑)
+            case 83:
+                pos=pos+400;
+                if(pos>1500)pos=0;
                 break;
-            case 87: pos=pos-400; if(pos<0)pos=1200;  // (↓)
+            case 87:
+                pos=pos-400;
+                if(pos<0)pos=1200;
                 break;
         }
         $("#slideImg").css("bottom",pos+"px");
@@ -70,7 +64,7 @@
                 if(pos<0)pos=1200;
             }else{
                 pos=pos+400;
-                if(pos>=1600)pos=0;
+                if(pos>1500)pos=0;
             }
             $("#slideImg").css("bottom",pos+"px");
         });
@@ -82,7 +76,7 @@
                 if(pos<0)pos=1200;
             }else{
                 pos=pos+400;
-                if(pos>=1600)pos=0;
+                if(pos>1500)pos=0;
             }
             $("#slideImg").css("bottom",pos+"px");
         });
